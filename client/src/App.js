@@ -1,5 +1,8 @@
+import React, { Component } from 'react'
+
 import './App.css';
 import BookList from './components/BookList';
+import AddBook from './components/AddBook';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 const cors = require('cors');
@@ -12,15 +15,16 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloClient client={client}>
+    <ApolloProvider client={client}>
 
-      <div id='main' className="App">
+      <div id="main">
         <BookList />
+        <AddBook />
 
       </div>
 
 
-    </ApolloClient>
+    </ApolloProvider>
   );
 }
 
